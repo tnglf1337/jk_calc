@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build jar') {
             steps {
-                sh './mvnw clean package spring-boot:repackage'
+                sh 'mvn clean package spring-boot:repackage'
             }
         }
 
