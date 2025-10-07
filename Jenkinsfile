@@ -12,14 +12,6 @@ pipeline {
                 // Führt einen anderen Job aus (z. B. einen Freestyle-Job)
                 build job: 'calc-freestyle'
             }
-            post {
-                success {
-                    // Testresultate erfassen (für JUnit-Reports)
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    // Artefakte archivieren
-                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-                }
-            }
         }
     }
 }
