@@ -30,13 +30,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials',
                 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    bat "echo $USERNAME"
-                    bat "echo $PASSWORD"
-
                     sh "docker login --username $USERNAME --password $PASSWORD"
                     sh "docker push tneskedev/calc:latest"
-                    sh "echo $USERNAME"
-                    sh "echo $PASSWORD"
                 }
             }
         }
