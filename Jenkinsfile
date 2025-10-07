@@ -13,5 +13,15 @@ pipeline {
                 build job: 'calc-freestyle'
             }
         }
+
+        stage('Push Image to Dockerhub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials',
+                usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    bat "echo $USERNAME"
+                    bat "echo $PASSWORD"
+                }
+            }
+        }
     }
 }
