@@ -92,7 +92,6 @@
                 <version>3.4.0</version>
                 <configuration>
                     <configLocation>google_checks.xml</configLocation> <!-- z.B. Google Style -->
-                    <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>false</failsOnError>
                 </configuration>
