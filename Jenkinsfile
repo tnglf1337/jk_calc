@@ -18,8 +18,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials',
                 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    bat "echo $USERNAME"
-                    bat "echo $PASSWORD"
+                    sh "echo $USERNAME"
+                    sh "echo $PASSWORD"
                 }
             }
         }
