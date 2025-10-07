@@ -8,14 +8,16 @@ pipeline {
 
     stages {
         stage('Build and Analyse') {
-            build job: 'calc-freestyle'
-
+            steps {
+                // Führt einen anderen Job aus (z. B. einen Freestyle-Job)
+                build job: 'calc-freestyle'
+            }
             post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
                 success {
+                    // Testresultate erfassen (für JUnit-Reports)
                     junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
+                    // Artefakte archivieren
+                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                 }
             }
         }
