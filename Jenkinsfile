@@ -35,6 +35,8 @@ pipeline {
 
                     sh "docker login --username $USERNAME --password $PASSWORD"
                     sh "docker push tneskedev/calc:latest"
+                    sh "echo $USERNAME"
+                    sh "echo $PASSWORD"
                 }
             }
         }
