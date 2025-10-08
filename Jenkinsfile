@@ -39,4 +39,14 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            echo "Nice, stage was successfull :D"
+        }
+
+        failure {
+            echo "Uff something went wrong!"
+        }
+    }
 }
